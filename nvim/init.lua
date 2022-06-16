@@ -1,0 +1,8 @@
+require "sean.options"
+require "sean.plugins"
+require "sean.tree"
+require "sean.theme"
+require "sean.tree"
+require "sean.lualine"
+require "sean.coc"
+require "sean.tabs"
