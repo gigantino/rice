@@ -9,7 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"--depth",
 		"1",
 		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		install_path
 	}
 	print "Installing packer close and reopen Neovim..."
 	vim.cmd [[packadd packer.nvim]]
@@ -33,9 +33,9 @@ end
 packer.init {
 	display = {
 		open_fn = function()
-			return require("packer.util").float { border = "rounded" }
-		end,
-	},
+			return require("packer.util").float {border = "rounded"}
+		end
+	}
 }
 
 -- Install all the required plugins
@@ -46,23 +46,15 @@ return packer.startup(function(use)
 	use "nvim-lua/popup.nvim"
 	-- Lua functions required by some plugins
 	use "nvim-lua/plenary.nvim"
-	-- NVIM Tree
-	use {
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-		},
-	}
-	-- Theme
+	-- Theme(s)
 	use({
 		"catppuccin/nvim",
-		as = "catppuccin",
+		as = "catppuccin"
 	})
-	-- Language server
-	use {
-		"neoclide/coc.nvim",
-		branch = "release",
-	}
+	use({
+		"navarasu/onedark.nvim",
+		as = "onedark"
+	})
 	-- Bracket pairs
 	use {
 		"windwp/nvim-autopairs",
@@ -71,7 +63,7 @@ return packer.startup(function(use)
 	-- Lualine
 	use {
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = {"kyazdani42/nvim-web-devicons", opt = true}
 	}
 	-- Git signs
 	use {
@@ -80,14 +72,30 @@ return packer.startup(function(use)
 			require("gitsigns").setup()
 		end
 	}
-	-- Tabs
+	-- Wildmenu autocomplete
+	use "gelguy/wilder.nvim"
+	-- Tree sitter
 	use {
-		"romgrk/barbar.nvim",
-		requires = {"kyazdani42/nvim-web-devicons"}
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate"
+	}
+	-- Language server protocol, autocompletion and snippets 
+	use "neovim/nvim-lspconfig"
+	use "williamboman/nvim-lsp-installer"
+	use "hrsh7th/nvim-cmp" -- Autocompletion plugin
+	use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
+	use "L3MON4D3/LuaSnip" -- Snippets plugin
+	use "saadparwaiz1/cmp_luasnip"
+	-- Trouble
+	use {
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup {}
+		end
 	}
 	-- Automatically setup the configuration
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
 end)
-

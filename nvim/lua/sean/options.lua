@@ -5,7 +5,7 @@ local options = {
 	-- Clipboard
 	clipboard = "unnamedplus",
 	-- Faster completion (defaults to 4000ms)
-	updatetime = 300,
+	updatetime = 250,
 	-- Splits
 	splitbelow = true,
 	splitright = true,
@@ -14,15 +14,17 @@ local options = {
 	-- Line numbers
 	number = true,
 	relativenumber = true,
+	numberwidth = 6,
+	signcolumn = "yes",
 	-- Indentation
 	smartindent = true,
 	expandtab = false,
 	tabstop = 3,
 	shiftwidth = 3,
 	-- GUI settings
-	guifont = "JetBrainsMono Nerd Font Mono:h17",
+	guifont = "JetBrainsMono Nerd Font Mono:h17"
 	-- Give more space for displaying messages
-	cmdheight = 2,
+	-- cmdheight = 2
 }
 
 for k, v in pairs(options) do
