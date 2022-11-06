@@ -1,8 +1,0 @@
-require "sean.options"
-require "sean.plugins"
-require "sean.theme"
-require "sean.lualine"
-require "sean.wilder"
-require "sean.treesitter"
-require "sean.lsp"
-require "sean.cmp"
