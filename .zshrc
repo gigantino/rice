@@ -1,9 +1,6 @@
 # Note: this file belongs to the root directory
 # alternatively, a symlink can be used 
 
-# source bash 
-source $HOME/.bashrc
-
 # path to oh my zsh
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -32,6 +29,10 @@ alias vim=nvim
 alias neovim=nvim
 alias sudo=doas
 alias clear="clear; macchina; ls"
+
+# nvm (https://github.com/nvm-sh/nvm)
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
 
 # run macchina and show the home directory
 macchina
