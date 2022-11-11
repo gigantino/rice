@@ -119,8 +119,19 @@ bar {
         status_command i3status
 }
 
+# disable borders and title bars
+default_border pixel 0
+
+# gaps
+gaps inner 10
+smart_gaps off
+
 # [!] System specific only [!]
 # Those settings are valid only on my machine
 
 # change monitor resolution and refresh rate
 exec --no-startup-id xrandr --output HDMI-0 --mode 1920x1080 --rate 144
+# [note] a wallpaper should be added in the i3 directory
+exec --no-startup-id feh --bg-scale ~/.config/wallpapers/wallpaper.jpg
+# picom (transparency/fade)
+exec --no-startup-id picom
